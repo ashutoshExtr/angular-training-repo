@@ -10,6 +10,7 @@ import { MainMenuComponent } from './header/main-menu/main-menu.component';
 import { ContainerComponent } from './container/container.component';
 import { SearchComponent } from './container/search/search.component';
 import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from './container/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MainMenuComponent,
     ContainerComponent,
     SearchComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
