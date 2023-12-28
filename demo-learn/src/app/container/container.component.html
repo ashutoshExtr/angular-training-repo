@@ -12,6 +12,10 @@
     <input (input)="onNameChange($event)"><br>
      <p>name={{name}}</p> -->
     <app-search></app-search>
+
+    <div *ngFor="let item of listOfString">
+        <p>current item is {{ item }}</p>
+    </div>
 </div>
 
 
