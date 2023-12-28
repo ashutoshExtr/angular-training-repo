@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
+  name:"John M";
   addToCart:number = 0;
   product = {
     name: 'iPhone X',
@@ -21,8 +22,8 @@ export class ProductListComponent {
   }
 
   onNameChange(event: any){
-    //this.name = event.target.value;
-    //console.log(event.target.value);
+    this.name = event.target.value;
+    console.log(event.target.value);
   }
 
   decrementCartValue(){
