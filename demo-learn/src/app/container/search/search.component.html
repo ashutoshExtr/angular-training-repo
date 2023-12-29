@@ -1,8 +1,10 @@
 <div class="ekart--search--product">
     <!-- Two way data binding -->
-    <input class="ekart-search-product-input" [(ngModel)]="searchText" (input)="onSearchTextChanged()">
+    <!-- <input class="ekart-search-product-input" [(ngModel)]="searchText" (input)="onSearchTextChanged()"> -->
     <!-- <input class="ekart-search-product-input" (input)="updateSearchText($event)" [value]="searchText"> -->
     <!-- <button class="btn btn-search" [disabled]="!searchText">Search</button> -->
-    <button [ngClass]="{'btn':true, 'btn-search': searchText, 'btn-search-disabled': !searchText }" [disabled]="!searchText">Search</button>
+    <input class="ekart-search-product-input" #searchInput>
+    <!-- #searchInput is a template reference, it is going to store a refernce to the input element -->
+    <button class="btn btn-search" (click)="updateSearchText(searchInput)">Search</button>
 </div>
 <div class="ekart-search-result-for"><p *ngIf="searchText != '' "><strong>Search result for:</strong> {{ searchText }}</p></div>
