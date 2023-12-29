@@ -18,7 +18,7 @@
     </div> -->
 
     <app-product-list [searchText]="searchTextParent" #productListComponent></app-product-list>
-    <app-product-detail *ngIf="productListComponent.selectedProduct"></app-product-detail>
+    <app-product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComponent"></app-product-detail>
 </div>
 
 
