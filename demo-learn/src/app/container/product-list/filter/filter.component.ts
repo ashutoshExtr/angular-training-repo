@@ -17,10 +17,10 @@ export class FilterComponent {
 
 
   //we want to raise this event whenever there is change in selection of radio button 
-  
+  @Output()
   selectedFilterRadioButtonChanged:EventEmitter<string> = new EventEmitter<string>();
 
-
+  //this property is keeping tracking of which radio button selected on the web page in the CHILD COMPONENT
   selectedFilterRadioButton: string = 'all';
 
   onSelectedFilterRadioButtonChanged(){
