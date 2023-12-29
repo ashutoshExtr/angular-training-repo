@@ -40,5 +40,13 @@ export class ContainerComponent {
     
   // }
 
-  listOfString: string[] = ['Marly', 'John', 'Edy', 'Casey']
+  listOfString: string[] = ['Marly', 'John', 'Edy', 'Casey'];
+
+  searchTextParent: string = '';
+
+
+  setSearchText(value: any){
+    this.searchTextParent = value;
+  }
+
 }
