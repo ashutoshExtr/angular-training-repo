@@ -17,7 +17,8 @@
         <p>current item is {{ item }}</p>
     </div> -->
 
-    <app-product-list [searchText]="searchTextParent"></app-product-list>
+    <app-product-list [searchText]="searchTextParent" #productListComponent></app-product-list>
+    <app-product-detail *ngIf="productListComponent.selectedProduct"></app-product-detail>
 </div>
 
 
