@@ -11,13 +11,13 @@
     <button (click)="incrementCartValue()">+</button>
     <input (input)="onNameChange($event)"><br>
      <p>name={{name}}</p> -->
-    <app-search></app-search>
+    <app-search (SearchTextChanged)="setSearchText($event)"></app-search>
 
     <!-- <div *ngFor="let item of listOfString">
         <p>current item is {{ item }}</p>
     </div> -->
 
-    <app-product-list></app-product-list>
+    <app-product-list [searchText]="searchTextParent"></app-product-list>
 </div>
 
 

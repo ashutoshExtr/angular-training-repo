@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
@@ -536,6 +536,9 @@ export class ProductListComponent {
   totalProductCount = this.products.length;
   totalProductInStock = this.products.filter(p => p.is_in_inventory === true).length;
   totalProductOutOfStock = this.products.filter(q => q.is_in_inventory === false).length;
+
+  @Input()
+  searchText: string = '';
 
   //this is keeping tracking in the PARENT COMPONENT
   selectedFilterRadioButton: string = 'all';
