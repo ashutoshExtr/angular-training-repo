@@ -3,8 +3,11 @@
     <!-- <input class="ekart-search-product-input" [(ngModel)]="searchText" (input)="onSearchTextChanged()"> -->
     <!-- <input class="ekart-search-product-input" (input)="updateSearchText($event)" [value]="searchText"> -->
     <!-- <button class="btn btn-search" [disabled]="!searchText">Search</button> -->
+
+
+     <!-- instead of passing the reference to the searchInput element, now we are storing the reference of this input eleemnet inside searchInputEl property using  ViewChild decorator. -->
     <input class="ekart-search-product-input" #searchInput>
     <!-- #searchInput is a template reference, it is going to store a refernce to the input element -->
-    <button class="btn btn-search" (click)="updateSearchText(searchInput)">Search</button>
+    <button class="btn btn-search" (click)="updateSearchText()">Search</button>
 </div>
 <div class="ekart-search-result-for"><p *ngIf="searchText != '' "><strong>Search result for:</strong> {{ searchText }}</p></div>
