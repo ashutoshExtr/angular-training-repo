@@ -1,0 +1,12 @@
+<ng-container *ngIf="toggle; else toggleOff">
+  <p>Now the toggle is On. Click again to turn it off.
+  </p>
+</ng-container>
+
+
+<ng-template #toggleOff>
+  <p>Oh you turned on. Now click to turn off.
+  </p>
+</ng-template>
+
+<button (click)="onToggle()">Toggle</button>
