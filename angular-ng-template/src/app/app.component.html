@@ -1,0 +1,13 @@
+<h2>Learn Ng template</h2>
+
+
+<ng-template #myTemplate>
+  <h3>This is just another dummy text inside template</h3>
+  <p>This is just a paragraph inside the template</p>
+</ng-template>
+
+<!-- ng-template outlet directive -->
+<!-- it is a structural directive,  inorder to use this we need to create a template and on that template we need to specify the template reference -->
+
+<div *ngTemplateOutlet="myTemplate"></div>
+<!-- here instaed of div we can use ng-conatiner. The ngTemplateOutlet directive can be applied to any elemnet like(div,ng-conatiner etc) -->
