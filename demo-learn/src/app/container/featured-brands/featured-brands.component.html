@@ -1,7 +1,9 @@
 <div class="ekart-featured-product-item">
-    <ng-content></ng-content>
+    <ng-content select=".title"></ng-content>
     <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
          Nesciunt, quasi quae officiis doloribus officia aliquid assumenda qui aut nemo, 
-         doloremque, recusandae nisi eos hic ipsum cupiditate placeat ut incidunt. Architecto.</p>
-    <button class="call-to-action">Learn More</button>
+         doloremque, recusandae nisi eos hic ipsum cupiditate placeat ut incidunt. Architecto.
+    </p>
+    <ng-content select=".call-to-action"></ng-content>
+    <!-- in case of multiple ng-content, last ng-content will be replaced with the content which we are projecting from the parent -->
 </div>
