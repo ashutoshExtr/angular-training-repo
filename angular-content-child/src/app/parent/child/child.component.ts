@@ -12,7 +12,9 @@ export class ChildComponent {
 
   @ContentChild(TestComponent) testEl: TestComponent;
 
-  
+   @ContentChildren('para') paraElements: QueryList<ElementRef>;
+
+   @ContentChildren(TestComponent) testElements: QueryList<TestComponent>;
 
   
   StyleParagraph(){
@@ -20,6 +22,10 @@ export class ChildComponent {
     console.log(this.testEl.name);
     
 
+    this.paraElements.forEach((el) => {console.log(el)});
+
+    this.testElements.forEach((el) => {console.log(el)});
+    console.log(this.paraElements);
     
   }
 }
