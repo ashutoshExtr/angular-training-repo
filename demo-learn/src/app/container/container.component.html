@@ -19,6 +19,30 @@
 
     <app-product-list [searchText]="searchTextParent" #productListComponent></app-product-list>
     <app-product-detail *ngIf="productListComponent.selectedProduct" [productListComp]="productListComponent"></app-product-detail>
+
+    <div class="ekart-featured-products">
+        <div class="ekart-featured-product-heading">
+            <h3>Latest arrival in popular brands</h3>
+        </div>
+
+        <app-featured-brands></app-featured-brands>
+        <app-featured-brands></app-featured-brands>
+        <app-featured-brands></app-featured-brands>
+        <!-- <div class="ekart-featured-product-item">
+            <h3 class="title">Arrivals in Adidas</h3>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Nesciunt, quasi quae officiis doloribus officia aliquid assumenda qui aut nemo, 
+                 doloremque, recusandae nisi eos hic ipsum cupiditate placeat ut incidunt. Architecto.</p>
+            <button class="call-to-action">Learn More</button>
+        </div>
+        <div class="ekart-featured-product-item">
+            <h3 class="title">Arrivals in Rebook</h3>
+            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Nesciunt, quasi quae officiis doloribus officia aliquid assumenda qui aut nemo, 
+                 doloremque, recusandae nisi eos hic ipsum cupiditate placeat ut incidunt. Architecto.</p>
+            <button class="call-to-action">Learn More</button>
+        </div> -->
+    </div>
 </div>
 
 
