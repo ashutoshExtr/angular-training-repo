@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges,OnInit{
+export class DemoComponent implements OnChanges,OnInit, DoCheck{
 
   title: string = 'Demo Component';
   @Input() message: string;
@@ -29,5 +29,10 @@ export class DemoComponent implements OnChanges,OnInit{
   ngOnInit(){
     console.log('ngOnInit Hook called');
     console.log(this.tempPara.nativeElement.innerHTML);
+  }
+
+  ngDoCheck(){
+    console.log('ngDoCheck Hook called');
+    //console.log('In ngDoCheck', this.paraContent)
   }
 }
