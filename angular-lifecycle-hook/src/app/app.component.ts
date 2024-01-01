@@ -22,4 +22,8 @@ export class AppComponent {
   ngAfterViewInit(){
     console.log('ngAfterViewInit Hook of APPCOMPONENT called');
   }
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked Hook of APPCOMPONENT called');
+  }
 }

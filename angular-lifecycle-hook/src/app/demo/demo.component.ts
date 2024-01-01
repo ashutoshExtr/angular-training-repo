@@ -1,11 +1,11 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrl: './demo.component.css'
 })
-export class DemoComponent implements OnChanges,OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit{
+export class DemoComponent implements OnChanges,OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
 
   title: string = 'Demo Component';
   @Input() message: string;
@@ -13,7 +13,7 @@ export class DemoComponent implements OnChanges,OnInit, DoCheck, AfterContentIni
   @ContentChild('temp') paraContent: ElementRef;
   
   constructor(){
-    console.log('Demo component constructor called');
+    //console.log('Demo component constructor called');
     //console.log(this.title);
     //console.log(this.message);
   }
@@ -22,13 +22,13 @@ export class DemoComponent implements OnChanges,OnInit, DoCheck, AfterContentIni
   // this is provided by an interface.
   //to get the previous and current value of input property - pass the parameter i.e changes:SimpleChanges
   ngOnChanges(changes: SimpleChanges){
-    //console.log('ngOnChanges called');
+    console.log('ngOnChanges called');
     //console.log(this.message);
     //console.log(changes);
   }
 
   ngOnInit(){
-    //console.log('ngOnInit Hook called');
+    console.log('ngOnInit Hook called');
     //console.log(this.tempPara.nativeElement.innerHTML);
   }
 
@@ -45,11 +45,17 @@ export class DemoComponent implements OnChanges,OnInit, DoCheck, AfterContentIni
   ngAfterContentChecked(){
     console.log('ngAfterContentChecked Hook called');
     //console.log('In ngAfterContentChecked', this.paraContent.nativeElement);
-    console.log('In ngAfterContentChecked', this.tempPara);
+    //console.log('In ngAfterContentChecked', this.tempPara);
   }
 
   ngAfterViewInit(){
     console.log('ngAfterViewInit Hook called');
-    console.log('In ngAfterViewInit', this.tempPara);
+    //onsole.log('In ngAfterViewInit', this.tempPara);
+  }
+
+
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked Hook called');
+    console.log(this.tempPara.nativeElement.textContent);
   }
 }
