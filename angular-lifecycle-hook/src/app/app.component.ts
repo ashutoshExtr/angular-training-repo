@@ -19,11 +19,15 @@ export class AppComponent {
   }
 
 
-  ngAfterViewInit(){
-    console.log('ngAfterViewInit Hook of APPCOMPONENT called');
-  }
+  // ngAfterViewInit(){
+  //   console.log('ngAfterViewInit Hook of APPCOMPONENT called');
+  // }
 
-  ngAfterViewChecked(){
-    console.log('ngAfterViewChecked Hook of APPCOMPONENT called');
+  // ngAfterViewChecked(){
+  //   console.log('ngAfterViewChecked Hook of APPCOMPONENT called');
+  // }
+
+  DestroyComponent(){
+    this.toDestroy = !this.toDestroy;
   }
 }
