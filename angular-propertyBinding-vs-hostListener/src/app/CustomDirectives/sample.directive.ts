@@ -5,6 +5,8 @@ import { Directive } from '@angular/core';
 })
 export class SampleDirective {
 
+  inputValue: string = 'Hi There!'
+
   constructor() { }
 
 }
