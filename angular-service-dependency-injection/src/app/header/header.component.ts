@@ -17,4 +17,8 @@ export class HeaderComponent {
   AdminClicked(){
     this.selectedTab = 'admin';
   }
+
+  OnSubscribe(){
+    alert('Thank you for subscribing')
+  }
 }
