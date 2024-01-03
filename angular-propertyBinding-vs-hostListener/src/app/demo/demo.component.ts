@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class DemoComponent {
   textValue: string = 'Hellloo';
+
+  logValue(){
+    console.log('Now in focused');
+    
+  }
 }
