@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from "@angular/core";
 
 
 @Directive({
@@ -14,6 +14,12 @@ export class SetBackground implements OnInit{
 
     //private element: ElementRef;
     
+    //@Input('setBackground') backColor:string = 'grey';
+    //@Input() textColor:string = 'white';
+
+    //in case we want to use both the properties we need to do like this
+    @Input('setBackground') changeTextAndBackColor: { backColor: string, textColor: string };
+
     //private renderer: Renderer2;
     constructor(private element: ElementRef, private renderer: Renderer2) {
         //this.renderer = renderer;
@@ -23,8 +29,8 @@ export class SetBackground implements OnInit{
     ngOnInit(){
         //this.element.nativeElement.style.backgroundColor = 'grey';
         //this.element.nativeElement.style.color = 'white';
-        this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', 'grey');
-        this.renderer.setStyle(this.element.nativeElement, 'color', 'white');
+        this.renderer.setStyle(this.element.nativeElement, 'backgroundColor', this.changeTextAndBackColor.backColor);
+        this.renderer.setStyle(this.element.nativeElement, 'color', this.changeTextAndBackColor.textColor);
         //this.renderer.setAttribute(this.element.nativeElement, 'title', 'This is title');
     }
 
