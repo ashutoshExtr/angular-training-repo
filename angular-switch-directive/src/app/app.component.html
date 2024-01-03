@@ -1,0 +1,69 @@
+<div class="notice-conatiner">
+  <div class="notice-header">
+    <button (click)="onInfoClicked()">Info</button>
+    <button (click)="onServiceClicked()">Service</button>
+    <button (click)="onPrivacyClicked()">Privacy</button>
+    <button (click)="onUserClicked()">Agreement</button>
+  </div>
+
+  <div class="notice-body" [ngSwitch]="tab">
+      <!-- default service and agreementt page -->
+      <div *ngSwitchDefault>
+        <h1>terms of service policy</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+      </div>
+
+
+      <!-- terms of service page -->
+      <div *ngSwitchCase="'service'">
+        <h2>Terms of service</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+      </div>
+
+      <div *ngSwitchCase="'privacy'">
+        <h2>Privacy policy</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+      </div>
+
+
+      <div *ngSwitchCase="'user'">
+        <h2>User agreement policy</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit quas quidem cumque esse assumenda 
+          facere fugiat enim in animi deleniti, debitis neque quia repudiandae fuga est excepturi voluptatum voluptatem impedit?
+        </p>
+      </div>
+  </div>
+</div>
