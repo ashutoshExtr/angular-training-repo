@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SubscribeService } from '../../../Services/subscribe.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
   OnSubscribe(){
-    alert('Thank you for subscribing')
+    let subService = new SubscribeService();
+    subService.OnSubscribeClicked('daily');
   }
 }
