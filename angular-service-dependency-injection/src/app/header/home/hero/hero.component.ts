@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SubscribeService } from '../../../Services/subscribe.service';
 
 @Component({
@@ -13,9 +13,11 @@ export class HeroComponent {
   //hero coponent  has dependency on subscribeservice class.
 
    // HOW TO PROVIDE
-  constructor(private subService: SubscribeService){
+  // constructor(private subService: SubscribeService){
 
-  }
+  // }
+  //another way to inject a service
+  subService = inject(SubscribeService);
 
 
 
