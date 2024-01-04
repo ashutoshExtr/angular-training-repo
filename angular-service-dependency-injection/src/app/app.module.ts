@@ -31,7 +31,16 @@ import { LoggerService } from './Services/logger.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [SubscribeService, UserService, LoggerService],
+  //providers: [SubscribeService, UserService, LoggerService],
+  //behind scenes UserService works as an object. {provide: UserService, useClass: UserService}
+  // provide property stores an unique identifier for regiustering the class, which we also call as TOKEN.
+  //this Token acts as a Key.
+  // useClass tells about which class needs to be instantiated for the token
+
+  providers: [
+    SubscribeService, 
+    {provide: 'USER_SERVICE', useClass: UserService},
+    LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

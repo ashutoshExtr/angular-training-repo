@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { UserService } from '../../../Services/user.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { UserService } from '../../../Services/user.service';
 })
 export class UserListComponent {
 
-  constructor(private userService: UserService){
+  constructor(@Inject('USER_SERVICE') private userService: UserService){
 
   }
 
