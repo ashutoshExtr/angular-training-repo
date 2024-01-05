@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -28,10 +28,12 @@ export class AppComponent {
   // })
 
   // of Operatior is going to emit all data and can pass multiple arguments
-  myObservable = of(this.array1, this.array2);
+  //myObservable = of(this.array1, this.array2);
 
 
-
+  //from operator takes single argument, takes each elemnt and stream after one another element/data
+  //the argument has to be ITERABLE like array/string
+  myObservable = from(this.array1);
 
 
   GetAsyncData(){
