@@ -26,17 +26,31 @@ export class AppComponent {
 
   GetAsyncData(){
     //this code is obeserver
-    this.myObservable.subscribe((val :any) => {
-      // this.data =  val;
-      this.data.push(val);
-      //the callback function here is the HANDLER
-    },
-    (err) => {
-      alert( err.message)
-    },
-    () => {
-      alert('you are done');
-    }
-    );
+    // this.myObservable.subscribe((val :any) => {
+    //   // this.data =  val;
+    //   this.data.push(val);
+    //   //the callback function here is the HANDLER
+    // },
+    // (err) => {
+    //   alert( err.message)
+    // },
+    // () => {
+    //   alert('you are done');
+    // }
+    //);
+    // THIS METHOD IS DEPRECATED
+
+      this.myObservable.subscribe({
+        next : (val:any) => {
+          this.data.push(val);
+        },
+        error(err){
+          alert( err.message);
+        },
+        complete() {
+          alert('you are done');
+        },
+      })
+    
   }
 }
