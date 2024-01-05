@@ -33,8 +33,14 @@ export class AppComponent {
 
   //from operator takes single argument, takes each elemnt and stream after one another element/data
   //the argument has to be ITERABLE like array/string
-  myObservable = from(this.array1);
+  // myObservable = from(this.array1);
 
+
+  promiseData = new Promise((resolve, reject) => {
+    resolve([10,20,30]);
+  })
+
+  myObservable = from(this.promiseData);
 
   GetAsyncData(){
     //this code is obeserver
