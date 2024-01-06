@@ -67,19 +67,42 @@ export class SubjectComponent implements OnInit{
 
 
     //Async Subject
-    const asyncSubject = new AsyncSubject();
+    // const asyncSubject = new AsyncSubject();
 
-    asyncSubject.next(100);
-    asyncSubject.next(200);
-    asyncSubject.next(300);
+    // asyncSubject.next(100);
+    // asyncSubject.next(200);
+    // asyncSubject.next(300);
 
-    asyncSubject.subscribe(data => console.log(`Subscriber 1: ${data}`));
+    // asyncSubject.subscribe(data => console.log(`Subscriber 1: ${data}`));
 
-    asyncSubject.complete();
-    asyncSubject.next(400);
     // asyncSubject.complete();
+    // asyncSubject.next(400);
+    // // asyncSubject.complete();
 
-    asyncSubject.subscribe(data => console.log(`Subscriber 2: ${data}`));
+    // asyncSubject.subscribe(data => console.log(`Subscriber 2: ${data}`));
+
+
+
+    //Promise vs Observable
+
+    const promise = new Promise((resolve, reject) => {
+      console.log('Promise is called');
+      resolve(100);
+      resolve(200);
+      resolve(300);
+    })
+
+    promise.then((data) => {
+      console.log(data);
+    })
+
+    const obs = new Observable((sub) =>{
+      console.log('Observable is called');
+      sub.next(100);
+      sub.next(200);
+      sub.next(300);
+    })
+    obs.subscribe(data => console.log(data));
 
   }
 }
