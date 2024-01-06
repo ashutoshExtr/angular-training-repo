@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
 
 @Component({
   selector: 'app-subject',
@@ -12,7 +13,7 @@ export class SubjectComponent implements OnInit{
     //   observer.next(Math.random())
     // })
 
-    const subject = new Subject();
+    //const subject = new Subject();
 
     // observer doesnot emit same value to all its subscribers
     // obs.subscribe((data) => {
@@ -20,14 +21,26 @@ export class SubjectComponent implements OnInit{
     // })
 
     //in case of subject both subscribe gets same value
-    subject.subscribe((data) => {
-      console.log(data);
-    })
+    // subject.subscribe((data) => {
+    //   console.log(data);
+    // })
 
-    subject.subscribe((data) => {
-      console.log(data);
-    })
+    // subject.subscribe((data) => {
+    //   console.log(data);
+    // })
 
-    subject.next(Math.random());
+    // subject.next(Math.random());
+
+
+    //AJAX CALL
+    const subject = new Subject();
+    const data = ajax('https://randomuser.me/api/');
+
+    subject.subscribe((res) => console.log(res));
+    subject.subscribe((res) => console.log(res));
+    subject.subscribe((res) => console.log(res));
+
+    //here subject is consumer value, not providing
+    data.subscribe(subject);
   }
 }
