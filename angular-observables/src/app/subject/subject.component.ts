@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
+import { AsyncSubject, BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -17,11 +17,11 @@ export class SubjectComponent implements OnInit{
 
 
     // to store old values we use replay subject
-     const subject = new ReplaySubject(2);
+    //  const subject = new ReplaySubject(2);
 
-    subject.next(100);
-    subject.next(200);
-    subject.next(300);
+    // subject.next(100);
+    // subject.next(200);
+    // subject.next(300);
 
     // in case of bahavior subject we can pass INITIAL VALUE
     //const subject = new BehaviorSubject<number>(100);
@@ -32,23 +32,23 @@ export class SubjectComponent implements OnInit{
     // })
 
     //in case of subject both subscribe gets same value
-    subject.subscribe((data) => {
-      console.log("Subscriber 1:" +data);
-    })
+    // subject.subscribe((data) => {
+    //   console.log("Subscriber 1:" +data);
+    // })
 
-    subject.subscribe((data) => {
-      console.log("Subscriber 2:" +data);
-    })
+    // subject.subscribe((data) => {
+    //   console.log("Subscriber 2:" +data);
+    // })
 
-    //emit value
-    subject.next(2020);
+    // //emit value
+    // subject.next(2020);
 
-    // for this subscribe the value will not be 100, it will have value which was last emitted
-    subject.subscribe((data) => {
-      console.log("Subscriber 3:" +data);
-    })
+    // // for this subscribe the value will not be 100, it will have value which was last emitted
+    // subject.subscribe((data) => {
+    //   console.log("Subscriber 3:" +data);
+    // })
 
-    subject.next(2024);
+    // subject.next(2024);
 
 
 
@@ -63,5 +63,23 @@ export class SubjectComponent implements OnInit{
 
     // //here subject is consumer value, not providing
     // data.subscribe(subject);
+
+
+
+    //Async Subject
+    const asyncSubject = new AsyncSubject();
+
+    asyncSubject.next(100);
+    asyncSubject.next(200);
+    asyncSubject.next(300);
+
+    asyncSubject.subscribe(data => console.log(`Subscriber 1: ${data}`));
+
+    asyncSubject.complete();
+    asyncSubject.next(400);
+    // asyncSubject.complete();
+
+    asyncSubject.subscribe(data => console.log(`Subscriber 2: ${data}`));
+
   }
 }
