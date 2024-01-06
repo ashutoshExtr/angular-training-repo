@@ -28,6 +28,11 @@
           <div class="page-header-primary-nav">
             <!-- we can use like this, but it will make q request to the server for each route -->
               <!-- <a href="Home">HOME</a> -->
+
+              <!-- This is absolute path, if we specify SLASH /. This will be directly appended to the root url -->
+              <!-- <a routerLink="/Home" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">HOME</a> -->
+
+              <!-- if we dont use slash, it is relative path. this is appended to the currently active route -->
               <a routerLink="Home" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">HOME</a>
               <a [routerLink]="'About'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">ABOUT</a>'
               <a routerLink="Contact" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">CONTACT</a>
