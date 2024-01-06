@@ -51,14 +51,18 @@ export class AppComponent implements AfterViewInit {
 
   // myObservable = from(this.promiseData);
 
-  myObservable = from([2,4,6,8,10,12]);
-
-  // using pipe we can chain other operators. here we can chain filter operator along with map operator
-  transformObs = this.myObservable.pipe(map((val) => {
+  myObservable = from([2,4,6,8,10,12]).pipe(map((val) => {
     return val * 5;
   }), filter((val,i) => {
     return val % 4 === 0; 
-  }))
+  }));
+
+  // using pipe we can chain other operators. here we can chain filter operator along with map operator
+  // transformObs = this.myObservable.pipe(map((val) => {
+  //   return val * 5;
+  // }), filter((val,i) => {
+  //   return val % 4 === 0; 
+  // }))
 
 
   // filteredObs = this.transformObs.pipe(filter((val,i) => {
@@ -81,7 +85,7 @@ export class AppComponent implements AfterViewInit {
     //);
     // THIS METHOD IS DEPRECATED
 
-      this.transformObs.subscribe({
+      this.myObservable.subscribe({
         next : (val:any) => {
           this.data.push(val);
         },
