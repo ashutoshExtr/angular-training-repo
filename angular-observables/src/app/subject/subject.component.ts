@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
@@ -15,8 +15,16 @@ export class SubjectComponent implements OnInit{
 
     //const subject = new Subject();
 
+
+    // to store old values we use replay subject
+     const subject = new ReplaySubject(2);
+
+    subject.next(100);
+    subject.next(200);
+    subject.next(300);
+
     // in case of bahavior subject we can pass INITIAL VALUE
-    const subject = new BehaviorSubject<number>(100);
+    //const subject = new BehaviorSubject<number>(100);
 
     // observer doesnot emit same value to all its subscribers
     // obs.subscribe((data) => {
