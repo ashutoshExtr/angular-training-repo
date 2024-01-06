@@ -18,6 +18,20 @@ import { ContactUsComponent } from './home/contact-us/contact-us.component';
 import { PopularComponent } from './home/popular/popular.component';
 import { ServicesComponent } from './home/services/services.component';
 import { TestimonyComponent } from './home/testimony/testimony.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ServicesService } from './Services/services.service';
+import { CourseService } from './Services/course.service';
+
+//routes
+//1. CREATE ROUTES ARRAY FOR ROUTING
+const routes:Routes = [
+  { path: '', component: HomeComponent},
+  //{ path: '', redirectTo: 'Home', pathMatch: 'full' },
+  { path: 'Home', component: HomeComponent},
+  { path: 'About', component: AboutComponent},
+  { path: 'Courses', component: CoursesComponent},
+  { path: 'Contact', component: ContactComponent},
+]
 
 @NgModule({
   declarations: [
@@ -40,9 +54,11 @@ import { TestimonyComponent } from './home/testimony/testimony.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //2. Register router module like this 
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ServicesService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
