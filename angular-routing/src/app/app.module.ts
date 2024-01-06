@@ -31,6 +31,7 @@ const routes:Routes = [
   { path: 'About', component: AboutComponent},
   { path: 'Courses', component: CoursesComponent},
   { path: 'Contact', component: ContactComponent},
+  { path: '**', component: NotFoundComponent}, // wildcard route -  if none of the matches found then this will be displayed. This route should be added at the end
 ]
 
 @NgModule({
