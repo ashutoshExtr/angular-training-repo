@@ -26,10 +26,12 @@
         </div>      
         <div class="page-header-primary">
           <div class="page-header-primary-nav">
-              <a href="#">HOME</a>
-              <a href="#">ABOUT</a>
-              <a href="#">CONTACT</a>
-              <a href="#">COURSES</a>
+            <!-- we can use like this, but it will make q request to the server for each route -->
+              <!-- <a href="Home">HOME</a> -->
+              <a routerLink="Home">HOME</a>
+              <a [routerLink]="'About'">ABOUT</a>
+              <a routerLink="Contact">CONTACT</a>
+              <a routerLink="Courses">COURSES</a>
           </div>
           <div class="page-header-login-logout">
               <a href="#">LOGIN</a>
