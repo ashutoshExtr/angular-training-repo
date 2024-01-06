@@ -1,5 +1,6 @@
 import { AfterViewInit } from '@angular/core';
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { filter } from 'rxjs';
 import { map } from 'rxjs';
 import { fromEvent } from 'rxjs';
 import { Observable, from, of } from 'rxjs';
@@ -50,11 +51,19 @@ export class AppComponent implements AfterViewInit {
 
   // myObservable = from(this.promiseData);
 
-  myObservable = from([2,4,6,8,10]);
+  myObservable = from([2,4,6,8,10,12]);
 
+  // using pipe we can chain other operators. here we can chain filter operator along with map operator
   transformObs = this.myObservable.pipe(map((val) => {
     return val * 5;
+  }), filter((val,i) => {
+    return val % 4 === 0; 
   }))
+
+
+  // filteredObs = this.transformObs.pipe(filter((val,i) => {
+  //   return val % 4 === 0; 
+  // }))
 
   GetAsyncData(){
     //this code is obeserver
