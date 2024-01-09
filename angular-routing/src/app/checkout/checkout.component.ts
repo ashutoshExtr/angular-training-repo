@@ -11,10 +11,15 @@ export class CheckoutComponent {
   router: Router = inject(Router);
   course;
 
+
+
+
   ngOnInit(){
     // this.activeRoute.data.subscribe((data) => {
     //   this.course = data;
     // })
+
+    
 
     //this.course = this.router.getCurrentNavigation().extras.state;
     this.course = history.state;

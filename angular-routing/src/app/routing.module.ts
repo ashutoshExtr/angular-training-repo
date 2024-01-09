@@ -25,7 +25,7 @@ const routes:Routes = [
     { path: 'Courses', canActivateChild:[CanActivateChild], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
-      {path: 'Checkout', component: CheckoutComponent}
+      {path: 'Checkout', component: CheckoutComponent, data: {name: 'test course', price: 399}}
     ]},
     { path: 'Contact', component: ContactComponent, canDeactivate: [(comp: ContactComponent) => {return comp.canExit();}]},
     {path: 'Login', component: LoginComponent},
