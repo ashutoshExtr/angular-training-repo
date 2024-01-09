@@ -10,7 +10,7 @@ import {  RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { AuthGuardService } from "./Services/authguard.service";
-import { CanActivate } from "./auth.guard";
+//import { CanActivateChild } from "./auth.guard";
 
 
 
@@ -22,10 +22,10 @@ const routes:Routes = [
     { path: 'Courses', component: CoursesComponent},
     //{ path: 'Courses/Course/:id', component: CourseDetailComponent},
     //creating child routes
-    { path: 'Courses', children: [
+    { path: 'Courses', canActivateChild:[AuthGuardService], children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
-      {path: 'Checkout', component: CheckoutComponent, canActivate: [ CanActivate]}
+      {path: 'Checkout', component: CheckoutComponent}
     ]},
     { path: 'Contact', component: ContactComponent},
     {path: 'Login', component: LoginComponent},
