@@ -22,6 +22,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ServicesService } from './Services/services.service';
 import { CourseService } from './Services/course.service';
 import { RoutingModule } from './routing.module';
+import { FormsModule } from '@angular/forms';
 
 //routes
 //1. CREATE ROUTES ARRAY FOR ROUTING
@@ -64,6 +65,7 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     AppRoutingModule,
     RoutingModule,
+    FormsModule,
     //2. Register router module like this 
     //RouterModule.forRoot(routes)
   ],
