@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { PopularComponent } from './home/popular/popular.component';
 import {  RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from "./login/login.component";
 
 
 
@@ -23,6 +24,7 @@ const routes:Routes = [
       {path: 'Popular', component: PopularComponent},
     ]},
     { path: 'Contact', component: ContactComponent},
+    {path: 'Login', component: LoginComponent},
     { path: '**', component: NotFoundComponent}, // wildcard route -  if none of the matches found then this will be displayed. This route should be added at the end
   ]
 
