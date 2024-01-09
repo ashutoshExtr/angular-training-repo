@@ -19,7 +19,7 @@ const routes:Routes = [
     //{ path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent},
     { path: 'About', component: AboutComponent},
-    { path: 'Courses', component: CoursesComponent},
+    { path: 'Courses', component: CoursesComponent, resolve: {courses: AuthGuardService}},
     //{ path: 'Courses/Course/:id', component: CourseDetailComponent},
     //creating child routes
     { path: 'Courses', canActivateChild:[CanActivateChild], children: [

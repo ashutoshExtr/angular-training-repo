@@ -1,8 +1,9 @@
 import { Injectable, inject } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanDeactivate, Resolve, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
 import { CourseService } from "./course.service";
+import { Course } from "../Models/course";
 
 export interface IDeactivateComponent{
     canExit: () => boolean | Observable<boolean> | Promise<boolean>;
@@ -14,11 +15,11 @@ export interface IDeactivateComponent{
 })
 
 //this file is about how to implement in angular 14 versions.
-export class AuthGuardService implements CanActivate, CanActivateChild, CanDeactivate<IDeactivateComponent>{
+export class AuthGuardService implements CanActivate, CanActivateChild, CanDeactivate<IDeactivateComponent>, Resolve<Course[]>{
 
     authService: AuthService = inject(AuthService);
     router: Router = inject(Router);
-    courseService: CourseService = inject(CourseService);
+    courseService: CourseService  = inject(CourseService);
 
     
 
@@ -43,5 +44,9 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanDeact
     {
         return component.canExit();
         //return false;
+    }
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Course[] | Observable<Course[]> | Promise<Course[]> {
+        return this.courseService.getAllcourses();
     }
 }
