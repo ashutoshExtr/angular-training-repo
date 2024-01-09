@@ -1,0 +1,42 @@
+import { NgModule } from "@angular/core";
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { CoursesComponent } from './courses/courses.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
+import { PopularComponent } from './home/popular/popular.component';
+import {  RouterModule, Routes } from '@angular/router';
+
+
+
+const routes:Routes = [
+    { path: '', component: HomeComponent},
+    //{ path: '', redirectTo: 'Home', pathMatch: 'full' },
+    { path: 'Home', component: HomeComponent},
+    { path: 'About', component: AboutComponent},
+    { path: 'Courses', component: CoursesComponent},
+    //{ path: 'Courses/Course/:id', component: CourseDetailComponent},
+    //creating child routes
+    { path: 'Courses', children: [
+      {path: 'Course/:id', component: CourseDetailComponent},
+      {path: 'Popular', component: PopularComponent},
+    ]},
+    { path: 'Contact', component: ContactComponent},
+    { path: '**', component: NotFoundComponent}, // wildcard route -  if none of the matches found then this will be displayed. This route should be added at the end
+  ]
+
+
+
+
+
+@NgModule({
+    imports: [
+        RouterModule.forRoot(routes),
+    ],
+    exports: [RouterModule]
+})
+
+export class RoutingModule{
+
+}
