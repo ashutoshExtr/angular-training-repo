@@ -10,7 +10,7 @@ import {  RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { AuthGuardService } from "./Services/authguard.service";
-import { CanActivate, CanActivateChild } from "./auth.guard";
+import { CanActivate, CanActivateChild,resolve } from "./auth.guard";
 
 
 
@@ -19,7 +19,7 @@ const routes:Routes = [
     //{ path: '', redirectTo: 'Home', pathMatch: 'full' },
     { path: 'Home', component: HomeComponent},
     { path: 'About', component: AboutComponent},
-    { path: 'Courses', component: CoursesComponent, resolve: {courses: AuthGuardService}},
+    { path: 'Courses', component: CoursesComponent, resolve: {courses: resolve}},
     //{ path: 'Courses/Course/:id', component: CourseDetailComponent},
     //creating child routes
     { path: 'Courses', canActivateChild:[CanActivateChild], children: [

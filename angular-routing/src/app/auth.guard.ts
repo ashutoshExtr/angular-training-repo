@@ -20,3 +20,9 @@ export const CanActivate = () => {
 export const CanActivateChild = () => {
     return CanActivate();
 }
+
+
+export const resolve = () =>{
+    const courseService = inject(CourseService);
+    return courseService.getAllcourses();
+}
