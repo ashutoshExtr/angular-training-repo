@@ -10,7 +10,7 @@ import {  RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
 import { AuthGuardService } from "./Services/authguard.service";
-import {  CanActivateChild } from "./auth.guard";
+import { CanActivate, CanActivateChild } from "./auth.guard";
 
 
 
@@ -27,7 +27,7 @@ const routes:Routes = [
       {path: 'Popular', component: PopularComponent},
       {path: 'Checkout', component: CheckoutComponent}
     ]},
-    { path: 'Contact', component: ContactComponent, canDeactivate: [AuthGuardService]},
+    { path: 'Contact', component: ContactComponent, canDeactivate: [(comp: ContactComponent) => {return comp.canExit();}]},
     {path: 'Login', component: LoginComponent},
     { path: '**', component: NotFoundComponent}, // wildcard route -  if none of the matches found then this will be displayed. This route should be added at the end
   ]
