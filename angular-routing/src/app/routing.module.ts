@@ -8,6 +8,8 @@ import { CourseDetailComponent } from './courses/course-detail/course-detail.com
 import { PopularComponent } from './home/popular/popular.component';
 import {  RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./login/login.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { AuthGuardService } from "./Services/authguard.service";
 
 
 
@@ -22,6 +24,7 @@ const routes:Routes = [
     { path: 'Courses', children: [
       {path: 'Course/:id', component: CourseDetailComponent},
       {path: 'Popular', component: PopularComponent},
+      {path: 'Checkout', component: CheckoutComponent, canActivate: [AuthGuardService]}
     ]},
     { path: 'Contact', component: ContactComponent},
     {path: 'Login', component: LoginComponent},
