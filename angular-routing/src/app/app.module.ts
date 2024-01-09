@@ -30,7 +30,12 @@ const routes:Routes = [
   { path: 'Home', component: HomeComponent},
   { path: 'About', component: AboutComponent},
   { path: 'Courses', component: CoursesComponent},
-  { path: 'Courses/Course/:id', component: CourseDetailComponent},
+  //{ path: 'Courses/Course/:id', component: CourseDetailComponent},
+  //creating child routes
+  { path: 'Courses', children: [
+    {path: 'Course/:id', component: CourseDetailComponent},
+    {path: 'Popular', component: PopularComponent},
+  ]},
   { path: 'Contact', component: ContactComponent},
   { path: '**', component: NotFoundComponent}, // wildcard route -  if none of the matches found then this will be displayed. This route should be added at the end
 ]
