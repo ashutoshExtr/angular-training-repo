@@ -1,0 +1,25 @@
+<!-- <p-button label="Submit" severity="danger"></p-button> -->
+
+
+<!-- <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true"></p-calendar>
+
+
+<p-colorPicker [(ngModel)]="color"></p-colorPicker>
+
+<p-sidebar [(visible)]="sidebarVisible3" position="top">
+  <h3>Top Sidebar</h3>
+</p-sidebar>
+
+<p-button type="button" class="mr-2" (click)="sidebarVisible3 = true" icon="pi pi-arrow-down"></p-button> -->
+
+
+
+<div style="text-align:center">
+  <h1>
+    Welcome to Image Fetcher!
+  </h1>
+  <button (click)="getImage()">Get Image</button>
+  <div *ngIf="imageUrl">
+    <img [src]="imageUrl" alt="Image">
+  </div>
+</div>
