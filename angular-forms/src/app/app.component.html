@@ -4,16 +4,28 @@
   <form class="form" (ngSubmit)="OnFormSubmitted()" #regform="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname" ngModel/>
-      </div> 
+        <input type="text" placeholder="First Name" name="firstname" [(ngModel)]="firstName" required #fname="ngModel"/>
+        <div>
+          <small *ngIf="fname.invalid && fname.touched">*First Name is required field!</small>
+          <span *ngIf="firstName">You entered: {{ firstName }}</span>
+        </div>
+      </div>       
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" ngModel/>
+        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="lastName" required #lname="ngModel"/>
+        <div>
+          <small *ngIf="lname.invalid && lname.touched">*Last Name is required field!</small>
+          <span *ngIf="lastName">You entered: {{ lastName }}</span>
+        </div>
       </div>
     </div>    
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email" ngModel/>
+      <input type="text" placeholder="Email" name="email" [(ngModel)]="emailAddress" required=" email" #email="ngModel"/>
+      <div>
+        <small *ngIf="email.invalid && email.touched">*Email is required field!</small>
+        <span *ngIf="emailAddress">You entered: {{ emailAddress }}</span>
+      </div>
     </div>
 
     <div class="column">
@@ -21,31 +33,26 @@
         <input type="number" placeholder="Phone Number" name="phone" ngModel/>
       </div>
       <div class="input-box">
-        <input type="date" placeholder="Date of Birth" name="dob" ngModel/>
+        <input type="date" placeholder="Date of Birth" name="dob" [(ngModel)]="dob"/>
       </div>
     </div>
 
     <div class="input-box">
-      <input type="text" placeholder="username" ngModel/>
+      <input type="text" placeholder="username" [(ngModel)]="userName"/>
       <button class="btn-gen-username">
         Create a Username
       </button>
+      <div>
+        <!-- <small *ngIf="uname.invalid && uname.touched">*Username is a required field</small> -->
+      </div>
     </div>
 
     <div class="gender-box">
       <h3>Gender</h3>
       <div class="gender-option">
-        <div class="gender">
-          <input type="radio" id="check-male" name="gender" ngModel/>
-          <label for="check-male">male</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-female" name="gender" ngModel/>
-          <label for="check-female">Female</label>
-        </div>
-        <div class="gender">
-          <input type="radio" id="check-other" name="gender" ngModel/>
-          <label for="check-other">prefer not to say</label>
+        <div class="gender" *ngFor="let gen of genders">
+          <input type="radio" [id]="gen.id" [value]="gen.value" name="gender" [ngModel]="defaultGender" />
+          <label for="check-male">{{ gen.display }}</label>
         </div>
       </div>
     </div>
@@ -56,7 +63,7 @@
       <input type="text" placeholder="Street address line 2" name="street2" ngModel/>
       <div class="column">
         <div class="select-box">
-          <select name="country" ngModel>
+          <select name="country" [(ngModel)]="country">
             <option hidden>Country</option>
             <option>America</option>
             <option>Japan</option>
@@ -64,13 +71,13 @@
             <option>Nepal</option>
           </select>
         </div>
-        <input type="text" placeholder="City" name="city" ngModel/>
+        <input type="text" placeholder="City" name="city" [(ngModel)]="city"/>
       </div>
       <div class="column">
-        <input type="text" placeholder="Region" name="region" ngModel/>
-        <input type="number" placeholder="Postal code" name="postal" ngModel/>
+        <input type="text" placeholder="Region" name="region" [(ngModel)]="region"/>
+        <input type="number" placeholder="Postal code" name="postal" [(ngModel)]="postal"/>
       </div>
     </div>
-    <input type="submit" value="Submit" class="submit-btn"> 
+    <input type="submit" value="Submit" class="submit-btn" [disabled]="!regform.valid"> 
   </form>
 </section>
