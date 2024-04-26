@@ -37,7 +37,7 @@ export class AppComponent {
     console.log(this.form.value.firstname);
     console.log(this.form.value.lastname);
     console.log(this.form.value.email);
-    console.log(this.form.value.country);
-    
+    console.log(this.form.value.address.country);
+    console.log(this.form.value.address.city);
   }
 }
