@@ -50,10 +50,10 @@ export class AppComponent {
     this.postal = this.form.value.address.postal;
     this.userName = this.form.value.username;
     this.dob = this.form.value.dob;
-    this.IsAgreed = this.form.value;
+    this.IsAgreed  = this.form.value;
 
 
-    this.form.reset();
+    // this.form.reset();
 
     this.form.form.patchValue({
       gender: 'male',
