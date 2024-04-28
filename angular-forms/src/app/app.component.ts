@@ -29,6 +29,7 @@ export class AppComponent {
 
 
   defaultGender: string = 'male';
+  defaultCountry: string = 'India';
 
   @ViewChild('regform') form! : NgForm;
 
@@ -39,6 +40,15 @@ export class AppComponent {
     console.log(this.form.value.email);
     console.log(this.form.value.address.country);
     console.log(this.form.value.address.city);
+
+    this.form.reset();
+
+    this.form.form.patchValue({
+      gender: 'male',
+      address: {
+        country: 'India'
+      }
+    })
   }
 
 
@@ -92,9 +102,9 @@ export class AppComponent {
 
     this.form.form.patchValue({
       username: username,
-      address: {
-        country: 'Japan'
-      }
+      // address: {
+      //   country: 'Japan'
+      // }
     })
 
 
