@@ -26,7 +26,9 @@ export class AppComponent  implements OnInit{
         region: new FormControl(null),
         postal: new FormControl(null, Validators.required),
       }),
-      
+      skills: new FormArray([
+        new FormControl(null, Validators.required)
+      ]),
       
     })
   }
