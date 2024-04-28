@@ -37,4 +37,16 @@ export class AppComponent  implements OnInit{
     console.log(this.reactiveForm);
     console.log(this.reactiveForm.value);
   }
+
+  AddSkills(){
+    (<FormArray>this.reactiveForm.get('skills'))
+      .push(new FormControl(null, Validators.required));
+  }
+
+  DeleteSkill(index: number){
+    const controls = <FormArray>this.reactiveForm.get('skills');
+    controls.removeAt(index);
+  }
+
+  
 }
