@@ -12,6 +12,7 @@ export class AppComponent  implements OnInit{
   formStatus: string = '';
 
   reactiveForm!: FormGroup;
+  formdata: any = {};
 
   ngOnInit() {
     this.reactiveForm = new FormGroup({
@@ -57,6 +58,28 @@ export class AppComponent  implements OnInit{
   OnFormSubmitted(){
     console.log(this.reactiveForm);
     console.log(this.reactiveForm.value);
+    this.formdata = this.reactiveForm.value;
+    this.reactiveForm.reset({
+      firstname: null,
+      lastname: null,
+      email: null,
+      username: null,
+      dob: null,
+      gender: 'male',
+      address:{
+        street: null,
+        country: 'India',
+        city: null,
+        region: null,
+        postal: null
+      },
+      skills: [
+        null
+      ],
+      experience: [
+        
+      ]
+    });
   }
 
   AddSkills(){
