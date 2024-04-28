@@ -35,11 +35,23 @@ export class AppComponent {
 
   OnFormSubmitted(){
     console.log(this.form);
-    console.log(this.form.value.firstname);
-    console.log(this.form.value.lastname);
-    console.log(this.form.value.email);
-    console.log(this.form.value.address.country);
-    console.log(this.form.value.address.city);
+    // console.log(this.form.value.firstname);
+    // console.log(this.form.value.lastname);
+    // console.log(this.form.value.email);
+    // console.log(this.form.value.address.country);
+    // console.log(this.form.value.address.city);
+
+    this.firstName = this.form.value.firstname;
+    this.lastName = this.form.value.lastname;
+    this.emailAddress = this.form.value.email;
+    this.country = this.form.value.address.country;
+    this.city = this.form.value.address.city;
+    this.region = this.form.value.address.region;
+    this.postal = this.form.value.address.postal;
+    this.userName = this.form.value.username;
+    this.dob = this.form.value.dob;
+    this.IsAgreed = this.form.value;
+
 
     this.form.reset();
 
